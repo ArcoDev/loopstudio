@@ -1,0 +1,155 @@
+    /* Fuentes */
+    
+    @import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap');
+    /*Globales*/
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: 15px;
+        font-family: 'Alata', sans-serif;
+        font-family: 'Josefin Sans', sans-serif;
+    }
+    /* colores */
+    
+    $white: hsl(0,
+    0%,
+    100%);
+    $black: hsl(0,
+    0%,
+    0%);
+    $dark_gray: hsl(0,
+    0%,
+    55%);
+    $very_darkGray: hsl(0,
+    0%,
+    41%);
+    /* responsive */
+    
+    $mobile: 767px;
+    /*Header*/
+    
+    .header {
+        width: 100vw;
+        height: 100vh;
+        background-image: url("../assets/img/header.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    
+    .navegacion {
+        width: 100%;
+        height: 80px;
+        padding: 50px 0;
+        /*background: transparent;
+    backdrop-filter: blur(10px);*/
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .logo a {
+            text-decoration: none;
+            color: $white;
+            font-size: 2.7rem;
+            font-weight: bold;
+        }
+        .link {
+            display: flex;
+            list-style: none;
+            a,
+            li {
+                color: $white;
+                margin-right: 15px;
+                text-decoration: none;
+                font-size: 1.2rem;
+                font-weight: 300;
+                &:hover {
+                    font-weight: bold;
+                }
+                @media screen and (max-width: $mobile) {
+                    & {
+                        font-size: 2.5rem;
+                    }
+                }
+            }
+            @media screen and (max-width: $mobile) {
+                & {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 100vh;
+                    width: 100vw;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-start;
+                    padding-top: 100px;
+                    line-height: 80px;
+                    background: transparent;
+                    backdrop-filter: blur(20px);
+                    transform: translate3d(0px, -100%, 0px);
+                    transition: all 1s ease-in-out;
+                    z-index: 1;
+                }
+            }
+        }
+        .anima-link {
+            transform: translate3d(0px, 0%, 0px);
+        }
+        .menu-mov {
+            display: none;
+            @mixin img-icon {
+                height: 40px;
+                width: 40px;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                transition: all .5s ease-in-out;
+                position: absolute;
+                right: 5%;
+                top: 4%;
+                z-index: 2;
+            }
+            .bars {
+                background-image: url('../assets/img/icon-hamburger.svg');
+                @include img-icon();
+            }
+            .cerrar {
+                background-image: url('../assets/img/icon-close.svg');
+                @include img-icon();
+            }
+            @media screen and (max-width: $mobile) {
+                & {
+                    display: block;
+                }
+            }
+        }
+    }
+    
+    .txt-header {
+        position: absolute;
+        top: 30%;
+        left: 5%;
+        border: 4px solid $dark_gray;
+        width: 40%;
+        padding: 30px;
+        @media screen and (max-width: $mobile) {
+            & {
+                top: 30%;
+                left: 3%;
+                width: 95%;
+            }
+        }
+        h2 {
+            font-size: 5.3rem;
+            color: $white;
+            text-transform: uppercase;
+            @media screen and (max-width: $mobile) {
+                & {
+                    font-size: 3rem;
+                }
+            }
+        }
+    }
